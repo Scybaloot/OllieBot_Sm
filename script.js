@@ -20,17 +20,23 @@ module.exports = new Script({
         receive: (bot, message) => {
             const name = message.text;
             return bot.setProp('name', name)
-                .then(() => bot.say(`Great! I'll call you ${name}
-Is that OK? %[Yes](postback:yes) %[No](postback:no)`))
+                .then(() => bot.say(`Arf Arf! Nice to meats you ${name} (hehe I like meats) \n 
+That your name right? %[Yes](postback:yes) %[No](postback:no)`))
                 .then(() => 'finish');
+        }
+    },
+
+    treat: {
+        receive: (bot, message) => {
+            return bot.say('I love peanuts butters!');
         }
     },
 
     finish: {
         receive: (bot, message) => {
             return bot.getProp('name')
-                .then((name) => bot.say(`Sorry ${name}, my creator didn't ` +
-                        'teach me how to do anything else!'))
+                .then((name) => bot.say(`Arf Arf! I am doggie with limited vocabulibrary. Sorry ${name}, I don't ` +
+                        'know that much'))
                 .then(() => 'finish');
         }
     }
