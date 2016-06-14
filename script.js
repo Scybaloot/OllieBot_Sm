@@ -20,8 +20,7 @@ module.exports = new Script({
         receive: (bot, message) => {
             const name = message.text;
             return bot.setProp('name', name)
-                .then(() => bot.say(`Arf Arf! Nice to meats you ${name} (hehe I like meats) \n 
-That your name right? %[Yes](postback:yes) %[No](postback:no)`))
+                .then(() => bot.say(`Arf Arf! Nice to meats you ${name}`))
                 .then(() => 'finish');
         }
     },
